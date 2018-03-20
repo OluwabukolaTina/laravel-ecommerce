@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -37,6 +40,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li class="navbar-nav"><a href="{{ route('products.index') }}">Products<li>
+                        <li class="navbar-nav"><a href="{{ route('products.create') }}">Add Product<li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,5 +82,23 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+
+    <script>
+        
+        @if(Session::has('success'))
+
+            toastr.success(" {{ Session::get('success') }}")
+
+        @endif
+
+        @if(Session::has('info'))
+
+            toastr.info(" {{ Session::get('info') }}")
+
+        @endif
+
+    </script>
 </body>
 </html>

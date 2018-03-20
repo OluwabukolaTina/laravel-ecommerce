@@ -1,6 +1,6 @@
 <?php
 
-namespace UserManagement;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

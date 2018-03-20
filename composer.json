@@ -27,7 +27,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "UserManagement\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
