@@ -40,7 +40,7 @@
 
                 <div class="col-lg-12">{{ $products->links() }}</div>
 
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
 
                     <nav class="navigation align-center">
 
@@ -59,7 +59,7 @@
 
                     </nav>
 
-                </div>
+                </div> -->
 
             
             </div>
