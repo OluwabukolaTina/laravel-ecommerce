@@ -35,7 +35,7 @@
                             	<tr class="cart_item">
 
                                 <td class="product-remove">
-                                    <a href="#" class="product-del remove" title="Remove this item">
+                                    <a href="{{ route('cart.delete', ['id' => $pdt->rowId ])}}" class="product-del remove" title="Remove this item">
                                         <i class="seoicon-delete-bold"></i>
                                     </a>
                                 </td>

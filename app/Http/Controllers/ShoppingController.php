@@ -48,4 +48,13 @@ class ShoppingController extends Controller
     	return view('cart');
 
     }
+
+    public function cartDelete($id)
+    {
+
+    	Cart::remove($id);
+
+    	return redirect()->back();
+
+    }
 }

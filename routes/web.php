@@ -95,3 +95,12 @@ Route::get('/cart', [
 		'as' => 'cart'
 
 ]);
+
+Route::get('/cart/delete/{id}', [
+
+		'uses' => 'ShoppingController@cartDelete',
+
+		'as' => 'cart.delete'
+
+
+]);
