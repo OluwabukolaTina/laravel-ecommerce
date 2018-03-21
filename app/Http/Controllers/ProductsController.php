@@ -77,7 +77,17 @@ class ProductsController extends Controller
 
         $product->image = 'uploads/products/' . $product_image_new_name;
 
+        // $product->slug = str_slug($request->name);
+
         $product->save();
+
+        // 'name' => $request->name,
+
+        // 'description' => $request->description,
+
+        // 'price' => $request->price,
+
+        // 'image'
 
         Session::flash('success', 'product has been added');
 

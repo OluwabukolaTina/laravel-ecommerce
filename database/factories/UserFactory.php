@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(6),
-        'image' => 'uploads/products/1.jpg',
+        'image' => 'uploads/products/2.jpg',
         'description' => $faker->paragraph(4),
         'price' => $faker->numberBetween(10, 1000)
     ];

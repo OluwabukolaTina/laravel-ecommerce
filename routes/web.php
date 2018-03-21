@@ -41,6 +41,14 @@ Route::get('/products/create', [
 
 ]);
 
+Route::post('/products/store', [
+
+	'uses' => 'ProductsController@store',
+
+	'as' => 'products.store'
+
+]);
+
 Route::get('/products/edit/{id}', [
 
 	'uses' => 'ProductsController@edit',
@@ -62,5 +70,13 @@ Route::get('/products/destroy/{id}', [
 	'uses' => 'ProductsController@destroy',
 
 	'as' => 'products.destroy'
+
+]);
+
+Route::get('/product/{id}', [
+	
+		'uses' => 'FrontEndController@singleProduct',
+
+		'as' => 'product.single'
 
 ]);

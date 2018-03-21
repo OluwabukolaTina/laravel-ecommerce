@@ -12,7 +12,17 @@ class FrontEndController extends Controller
     public function index()
     {
 
-    	return view('index', ['products' => Product::paginate(3)]);
+    	return view('index', ['products' => Product::paginate(6)]);
+
+    }
+
+    public function singleProduct($id)
+
+    {
+    	// $product = Product::where('name', $slug);
+
+    	return view('single', ['product' => Product::find($id)]);
+
 
     }
 
