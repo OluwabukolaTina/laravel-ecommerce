@@ -80,3 +80,10 @@ Route::get('/product/{id}', [
 		'as' => 'product.single'
 
 ]);
+
+Route::post('/cart/add', [
+		'uses'=> 'ShoppingController@addToCart',
+
+		'as' => 'cart.add'
+
+]);
