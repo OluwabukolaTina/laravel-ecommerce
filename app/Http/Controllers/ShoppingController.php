@@ -33,6 +33,15 @@ class ShoppingController extends Controller
 
     	// dd($cart);
 
-    	dd(Cart::content());
+    	// dd(Cart::content());
+    	return redirect()->route('cart');
+
+    }
+
+    public function cart()
+    {
+
+    	return view('cart');
+
     }
 }
