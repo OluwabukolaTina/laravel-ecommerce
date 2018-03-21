@@ -104,3 +104,19 @@ Route::get('/cart/delete/{id}', [
 
 
 ]);
+
+Route::get('/cart/increment/{id}/{qty}', [
+
+		'uses' => 'ShoppingController@increment',
+
+		'as' => 'cart.incr'
+
+]);
+
+Route::get('/cart/decrement/{id}/{qty}', [
+
+		'uses' => 'ShoppingController@decrement',
+
+		'as' => 'cart.decr'
+
+]);

@@ -57,4 +57,24 @@ class ShoppingController extends Controller
     	return redirect()->back();
 
     }
+
+    public function increment($id, $qty)
+    {
+
+        Cart::update($id, $qty + 1);
+
+        return redirect()->back();
+    }
+
+    public function decrement($id, $qty)
+    {
+
+        Cart::update($id, $qty - 1);
+
+        return redirect()->back();
+    }
+
+
+
+
 }
