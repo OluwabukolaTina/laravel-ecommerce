@@ -40,6 +40,35 @@ class ShoppingController extends Controller
 
     }
 
+    public function rapidAdd($id)
+    { 
+
+        // dd(request()->all());
+
+        //find the product that is to be added to the cart
+        $pdt = Product::find($id);
+
+        $cartItem = Cart::add([
+
+            'id' => $pdt->id,
+
+            'name' => $pdt->name,
+
+            'qty' => 1,
+
+            'price' => $pdt->price
+
+        ]);
+
+        Cart::associate($cartItem->rowId, 'App\Product');
+
+        // dd($cart);
+
+        // dd(Cart::content());
+        return redirect()->route('cart');
+
+    }
+
     public function cart()
     {
 
@@ -73,6 +102,8 @@ class ShoppingController extends Controller
 
         return redirect()->back();
     }
+
+
 
 
 

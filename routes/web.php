@@ -88,6 +88,14 @@ Route::post('/cart/add', [
 
 ]);
 
+Route::get('/cart/rapid/add/{id}', [
+		
+		'uses'=> 'ShoppingController@rapidAdd',
+
+		'as' => 'cart.rapid.add'
+
+]);
+
 Route::get('/cart', [
 		
 		'uses' => 'ShoppingController@cart',
