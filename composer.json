@@ -9,6 +9,7 @@
         "adamwathan/eloquent-oauth-l5": "^0.5.2",
         "barryvdh/laravel-debugbar": "^3.1",
         "fideloper/proxy": "~3.3",
+        "gloudemans/shoppingcart": "^2.5",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
