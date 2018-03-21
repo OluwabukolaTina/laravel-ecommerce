@@ -19,7 +19,7 @@ class ShoppingController extends Controller
     	//find the product that is to be added to the cart
     	$pdt = Product::find(request()->pdt_id);
 
-    	$cart = Cart::add([
+    	$cartItem = Cart::add([
 
     		'id' => $pdt->id,
 
@@ -31,6 +31,8 @@ class ShoppingController extends Controller
 
     	]);
 
+    	Cart::associate($cartItem->rowId, 'App\Product');
+
     	// dd($cart);
 
     	// dd(Cart::content());
@@ -40,6 +42,8 @@ class ShoppingController extends Controller
 
     public function cart()
     {
+
+    	// Cart::destroy();
 
     	return view('cart');
 
