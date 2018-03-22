@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
+
+use Stripe\Stripe;
+
+use Stripe\Charge;
+
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -21,7 +27,22 @@ class CheckoutController extends Controller
     public function pay()
     {
 
-        dd(request()->all());
+        // dd(request()->all());
+            Stripe::setApiKey('sk_test_cbm5FschjT6p2XUcStXhhPK1');
+
+            $charge = Charge::create([
+
+                'amount' => Cart::total() * 100,
+
+                'currency' => 'usd',
+
+                'description' => 'blah blah',
+
+                'source' => request()->stripeToken
+            
+            ]);
+
+        dd('successful');
 
     }
 

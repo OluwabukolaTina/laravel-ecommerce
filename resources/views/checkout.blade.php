@@ -92,11 +92,11 @@
 									{<form action="{{ route('cart.checkout')}}" method="POST">
 
 										{{ csrf_field() }}
-										
+
 										  <script
 										    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 										    data-key="pk_test_Ya3XzbEzRCoWtUwoMPFxzHkm"
-										    data-amount="999"
+										    data-amount="{{ Cart::total() * 100 }}"
 										    data-name="Ecommerce"
 										    data-description="Example charge"
 										    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
