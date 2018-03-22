@@ -128,3 +128,11 @@ Route::get('/cart/decrement/{id}/{qty}', [
 		'as' => 'cart.decr'
 
 ]);
+
+Route::get('cart/checkout', [
+		
+		'uses' => 'CheckoutController@index',
+
+		'as' => 'cart.checkout'
+
+]);
