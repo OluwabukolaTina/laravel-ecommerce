@@ -18,6 +18,13 @@ class CheckoutController extends Controller
 
     }
 
+    public function pay()
+    {
+
+        dd(request()->all());
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

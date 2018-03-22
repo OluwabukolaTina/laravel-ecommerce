@@ -136,3 +136,11 @@ Route::get('cart/checkout', [
 		'as' => 'cart.checkout'
 
 ]);
+
+Route::post('/cart/checkout', [
+
+		'uses' => 'CheckoutController@pay',
+
+		'as' => 'cart.checkout'
+
+]);

@@ -89,18 +89,20 @@
 							</a>
 							
 							<span style="float: right;">
-								<form action="/your-server-side-code" method="POST">
-									  <script
-									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-									    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-									    data-amount="999"
-									    data-name="Stripe.com"
-									    data-description="Widget"
-									    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-									    data-locale="auto"
-									    data-zip-code="true">
-									  </script>
-								</form>
+									{<form action="{{ route('cart.checkout')}}" method="POST">
+
+										{{ csrf_field() }}
+										
+										  <script
+										    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										    data-key="pk_test_Ya3XzbEzRCoWtUwoMPFxzHkm"
+										    data-amount="999"
+										    data-name="Ecommerce"
+										    data-description="Example charge"
+										    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+										    data-locale="auto">
+										  </script>
+										</form>}
 							</span>
 						</div>
 					</div>
