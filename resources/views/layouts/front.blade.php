@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/primary-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <!--Styles for RTL-->
 
@@ -169,8 +170,17 @@
 <script src="{{ asset('app/js/velocity.min.js')}}"></script>
 <script src="{{ asset('app/js/ScrollMagic.min.js')}}"></script>
 <script src="{{ asset('app/js/animation.velocity.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- ...end JS Script -->
+
+<script>
+    @if(Session::has('success'))
+
+        toastr.success('{{ Session::get('success') }}');
+    
+    @endif
+</script>
 
 
 </body>

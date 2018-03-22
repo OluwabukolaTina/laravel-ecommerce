@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
 use Cart;
 
 use App\Product;
@@ -33,6 +35,8 @@ class ShoppingController extends Controller
 
     	Cart::associate($cartItem->rowId, 'App\Product');
 
+        Session::flash('success', 'product has been added');
+
     	// dd($cart);
 
     	// dd(Cart::content());
@@ -62,6 +66,8 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Product');
 
+        Session::flash('success', 'product has been added');
+
         // dd($cart);
 
         // dd(Cart::content());
@@ -83,6 +89,8 @@ class ShoppingController extends Controller
 
     	Cart::remove($id);
 
+        Session::flash('success', 'product has been deleted');
+
     	return redirect()->back();
 
     }
@@ -92,13 +100,19 @@ class ShoppingController extends Controller
 
         Cart::update($id, $qty + 1);
 
+        Session::flash('success', 'product qty updated');
+
         return redirect()->back();
+
     }
 
     public function decrement($id, $qty)
     {
 
         Cart::update($id, $qty - 1);
+
+        Session::flash('success', 'product quantity has been updated');
+
 
         return redirect()->back();
     }
