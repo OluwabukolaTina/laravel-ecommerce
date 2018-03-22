@@ -24,6 +24,16 @@ class CheckoutController extends Controller
     public function index()
     {
         //
+        if(Cart::content()->count() == 0 )
+        {
+
+                Session::flash('info', 'your cart is empty, do add some books to your cart');
+
+                return redirect()->back();
+
+
+        }
+        
         return view('checkout');
 
     }
