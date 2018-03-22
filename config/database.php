@@ -55,10 +55,11 @@ return array(
 
                 'mysql' => array(
                         'driver'    => 'mysql',
-                        'host'      => 'localhost',
-                        'database'  => 'e-commerce',
-                        'username'  => 'root',
-                        'password'  => '',
+                        'host'      => 'db4free.net',
+                        'port' => '3306',
+                        'database'  => 'laravelecommerce',
+                        'username'  => 'roottimestwo',
+                        'password'  => 'tinatimestwo',
                         'charset'   => 'utf8',
                         'collation' => 'utf8_unicode_ci',
                         'prefix'    => '',
