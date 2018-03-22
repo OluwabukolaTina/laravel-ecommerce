@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
 use Cart;
+
+use Mail;
 
 use Stripe\Stripe;
 
@@ -25,25 +29,35 @@ class CheckoutController extends Controller
     }
 
     public function pay()
+    // public function pay(Request $req)
     {
 
         // dd(request()->all());
             Stripe::setApiKey('sk_test_cbm5FschjT6p2XUcStXhhPK1');
 
+            $token = request()->stripeToken;
+
             $charge = Charge::create([
 
-                'amount' => Cart::total() * 100,
+                "amount" => Cart::total() * 100,
 
-                'currency' => 'usd',
+                "currency" => "usd",
 
-                'description' => 'blah blah',
+                "description" => "blah blah",
 
-                'source' => request()->stripeToken
-            
+                "source" => $token
+                            
             ]);
 
-        dd('successful');
+        // dd('successful');
+        Session::flash('success', 'purchase successful');
 
+        Cart::destroy();
+
+        Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
+
+        return redirect('/');
+        
     }
 
     /**
