@@ -37,6 +37,8 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
+                    @if(Auth::check())
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
@@ -44,6 +46,8 @@
                         <li class="navbar-nav"><a href="{{ route('products.create') }}">Add Product<li>
                         
                     </ul>
+
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

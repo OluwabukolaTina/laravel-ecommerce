@@ -28,6 +28,14 @@
 
            <div class="form-group">
 
+            <label for="name">Code</label>
+        
+            <input type="text" name="code" value="{{ old('code') }}" class="form-control">
+
+           </div>
+
+           <div class="form-group">
+
             <label for="price">Price</label>
         
             <input type="number" name="price" value="{{ old('price') }}" class="form-control">

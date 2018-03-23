@@ -19,6 +19,8 @@
 
                             <th>Name</th>
 
+                            <th>Code</th>
+
                              <th>Price</th>
 
                              <th>Edit</th>
@@ -34,6 +36,8 @@
                                 <tr>
                                     
                                     <td> {{ $product->name }} </td>
+
+                                    <td>{{ $product->code }}</td>
 
                                     <td> {{ $product->price }} </td>
 

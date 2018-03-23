@@ -48,10 +48,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
+
         //
         $this->validate(request(), [
 
             'name' => 'required',
+
+            'code' => 'required',
 
             'description' => 'required',
 
@@ -70,6 +75,8 @@ class ProductsController extends Controller
         $product_image->move('uploads/posts', $product_image_new_name);
 
         $product->name = $request->name;
+
+        $product->code = $request->code;
 
         $product->description = $request->description;
 
