@@ -1,6 +1,5 @@
 @if (count($errors))
 
-
     <ul class="list-group">
 
       @foreach ($errors->all() as $error)
@@ -10,5 +9,5 @@
       @endforeach
 
     </ul>
-    
+
 @endif

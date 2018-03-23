@@ -33,11 +33,27 @@ Route::get('/products', [
 
 ]);
 
+Route::get('/categories', [
+
+	'uses' => 'CategoriesController@index',
+
+	'as' => 'categories.index'
+
+]);
+
 Route::get('/products/create', [
 
 	'uses' => 'ProductsController@create',
 
 	'as' => 'products.create'
+
+]);
+
+Route::get('/category/create', [
+
+	'uses' => 'CategoriesController@create',
+
+	'as' => 'category.create'
 
 ]);
 
@@ -49,6 +65,14 @@ Route::post('/products/store', [
 
 ]);
 
+Route::post('/category/store', [
+
+	'uses' => 'CategoriesController@store',
+
+	'as' => 'category.store'
+
+]);
+
 Route::get('/products/edit/{id}', [
 
 	'uses' => 'ProductsController@edit',
@@ -57,11 +81,19 @@ Route::get('/products/edit/{id}', [
 
 ]);
 
-Route::post('/products/update/{id}', [
+Route::get('/categories/edit/{id}', [
 
-	'uses' => 'ProductsController@update',
+	'uses' => 'CategoriesController@edit',
 
-	'as' => 'products.update'
+	'as' => 'category.edit'
+
+]);
+
+Route::post('/categories/update/{id}', [
+
+	'uses' => 'CategoriesController@update',
+
+	'as' => 'category.update'
 
 ]);
 
@@ -73,8 +105,16 @@ Route::get('/products/destroy/{id}', [
 
 ]);
 
+Route::get('/categories/destroy/{id}', [
+
+	'uses' => 'CategoriesController@destroy',
+
+	'as' => 'category.delete'
+
+]);
+
 Route::get('/product/{id}', [
-	
+
 		'uses' => 'FrontEndController@singleProduct',
 
 		'as' => 'product.single'
@@ -89,7 +129,7 @@ Route::post('/cart/add', [
 ]);
 
 Route::get('/cart/rapid/add/{id}', [
-		
+
 		'uses'=> 'ShoppingController@rapidAdd',
 
 		'as' => 'cart.rapid.add'
@@ -97,7 +137,7 @@ Route::get('/cart/rapid/add/{id}', [
 ]);
 
 Route::get('/cart', [
-		
+
 		'uses' => 'ShoppingController@cart',
 
 		'as' => 'cart'
@@ -109,7 +149,6 @@ Route::get('/cart/delete/{id}', [
 		'uses' => 'ShoppingController@cartDelete',
 
 		'as' => 'cart.delete'
-
 
 ]);
 
@@ -130,7 +169,7 @@ Route::get('/cart/decrement/{id}/{qty}', [
 ]);
 
 Route::get('cart/checkout', [
-		
+
 		'uses' => 'CheckoutController@index',
 
 		'as' => 'cart.checkout'

@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
-    
+
 </head>
 <body>
     <div id="app">
@@ -44,7 +44,9 @@
                         &nbsp;
                         <li class="navbar-nav"><a href="{{ route('products.index') }}">Products<li>
                         <li class="navbar-nav"><a href="{{ route('products.create') }}">Add Product<li>
-                        
+                        <li class="navbar-nav"><a href="{{ route('category.create') }}">Add Categories<li>
+                        <li class="navbar-nav"><a href="{{ route('categories.index') }}">Categories<li>
+
                     </ul>
 
                     @endif
@@ -90,7 +92,7 @@
     <script src="{{ asset('js/toastr.min.js') }}"></script>
 
     <script>
-        
+
         @if(Session::has('success'))
 
             toastr.success(" {{ Session::get('success') }}")
