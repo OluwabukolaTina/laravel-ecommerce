@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/test', function(){
+
+	return App\Product::with('category')->get();
+
+});
+
 Route::get('/', [
 
 	'uses' => 'FrontEndController@index',

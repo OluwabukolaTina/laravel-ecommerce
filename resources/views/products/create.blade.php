@@ -21,15 +21,31 @@
             <div class="form-group">
 
             <label for="name">Name</label>
-        
+
             <input type="text" name="name" value="{{ old('name') }}" class="form-control">
 
         	 </div>
 
            <div class="form-group">
 
+           <label for="name">Select Category</label>
+
+           <select name="category_id" id="category" class="form-control">
+
+             @foreach($categories as $category)
+
+             <option value="{{ $category->id }}">{{ $category->name }}</option>
+
+             @endforeach
+
+           </select>
+
+          </div>
+
+           <div class="form-group">
+
             <label for="name">Code</label>
-        
+
             <input type="text" name="code" value="{{ old('code') }}" class="form-control">
 
            </div>
@@ -37,7 +53,7 @@
            <div class="form-group">
 
             <label for="price">Price</label>
-        
+
             <input type="number" name="price" value="{{ old('price') }}" class="form-control">
 
            </div>
@@ -53,23 +69,23 @@
 
             <label for="content">Description</label>
             <textarea name="description" id="description" cols="20" rows="6" class="form-control">{{ old('description') }}</textarea>
-          
+
           </div>
-  
+
           <div class="form-group">
 
             <div class="text-center">
 
-                  <button type="submit" class="btn btn-success">Save Product</button> 
+                  <button type="submit" class="btn btn-success">Save Product</button>
             </div>
 
           </div>
-            
+
             </form>
       </div>
 
 </div>
-        
+
 
 @stop
 

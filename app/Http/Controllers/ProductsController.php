@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 
+use App\Category;
+
 use Session;
 
 use Illuminate\Http\Request;
@@ -36,7 +38,19 @@ class ProductsController extends Controller
     public function create()
     {
         //
-        return view('products.create');
+        $categories = Category::all();
+
+        if($categories->count() == 0)
+
+        {
+
+          Session::flash('info', 'you must have some categories before adding your products');
+
+          return redirect()->back();
+
+        }
+
+        return view('products.create')->with('categories', $categories);
 
     }
 
@@ -56,6 +70,8 @@ class ProductsController extends Controller
 
             'name' => 'required',
 
+            'category_id' => 'required',
+
             'code' => 'required',
 
             'description' => 'required',
@@ -63,7 +79,7 @@ class ProductsController extends Controller
             'price' => 'required',
 
             'image' => 'required|image'
-        
+
         ]);
 
         $product = new Product;
@@ -72,9 +88,11 @@ class ProductsController extends Controller
 
         $product_image_new_name = time() . $product_image->getClientOriginalName();
 
-        $product_image->move('uploads/posts', $product_image_new_name);
+        $product_image->move('uploads/products', $product_image_new_name);
 
         $product->name = $request->name;
+
+        $product->category_id = $request->category_id;
 
         $product->code = $request->code;
 
@@ -172,7 +190,7 @@ class ProductsController extends Controller
         Session::flash('success', 'Product updated successfully');
 
         return redirect()->route('products.index');
-    
+
     }
 
     /**
@@ -189,7 +207,7 @@ class ProductsController extends Controller
         if(file_exists($product->image)) {
 
             unlink($product->image);
-        
+
         }
 
         $product->delete();
