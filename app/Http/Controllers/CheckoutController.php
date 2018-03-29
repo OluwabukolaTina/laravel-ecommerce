@@ -12,10 +12,20 @@ use Stripe\Stripe;
 
 use Stripe\Charge;
 
+use Auth;
+
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +47,38 @@ class CheckoutController extends Controller
         return view('checkout');
 
     }
+
+    // public function pay()
+    // // public function pay(Request $req)
+    // {
+
+    //     // dd(request()->all());
+    //         Stripe::setApiKey('sk_test_cbm5FschjT6p2XUcStXhhPK1');
+
+    //         $token = request()->stripeToken;
+
+    //         $charge = Charge::create([
+
+    //             "amount" => Cart::total() * 100,
+
+    //             "currency" => "usd",
+
+    //             "description" => "blah blah",
+
+    //             "source" => $token
+                            
+    //         ]);
+
+    //     // dd('successful');
+    //     Session::flash('success', 'purchase successful');
+
+    //     Cart::destroy();
+
+    //     Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
+
+    //     return redirect('/');
+        
+    // }
 
     public function pay()
     // public function pay(Request $req)
@@ -60,9 +102,34 @@ class CheckoutController extends Controller
             ]);
 
         // dd('successful');
-        Session::flash('success', 'purchase successful');
 
-        Cart::destroy();
+        //create the order
+        $user = Auth::user();
+
+        $order = $user->orders()->create([
+
+            'total' => Cart::total(),
+
+            'delivered' => 0,
+
+        ]);
+
+        $cartItems = Cart::content();
+
+        foreach ($cartItems as $cartItem) {
+            # code...
+            //from the order model
+            $order->products()->attach($cartItem->id, [
+
+                'quantity' => $cartItem->qty,
+
+                'total' => $cartItem->total()
+    
+            ]);
+    
+        }
+
+        Session::flash('success', 'purchase successful');
 
         Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
 

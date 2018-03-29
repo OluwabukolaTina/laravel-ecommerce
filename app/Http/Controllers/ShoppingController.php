@@ -64,7 +64,7 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Product');
 
-        Cart::store('username');
+        // Cart::store('username');
 
         Session::flash('success', 'product has been added');
 

@@ -57,7 +57,7 @@ Route::name('cart.decr')->get('/cart/decrement/{id}/{qty}', 'ShoppingController@
 
 Route::name('cart.rapid.add')->get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd');
 
-Route::name('cart.checkout')->get('cart/checkout', 'CheckoutController@index');
+Route::name('cart.checkout')->get('/cart/checkout', 'CheckoutController@index');
 
 Route::name('cart.checkout')->post('/cart/checkout', 'CheckoutController@pay');
 
