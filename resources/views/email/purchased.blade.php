@@ -1,4 +1,5 @@
 @component('mail::message')
+
 # Introduction
 
 Hello

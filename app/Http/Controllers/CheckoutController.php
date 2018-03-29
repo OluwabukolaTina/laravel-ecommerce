@@ -118,7 +118,7 @@ class CheckoutController extends Controller
 
         foreach ($cartItems as $cartItem) {
             # code...
-            //from the order model
+            //from the order model..pivot
             $order->products()->attach($cartItem->id, [
 
                 'quantity' => $cartItem->qty,
@@ -130,6 +130,8 @@ class CheckoutController extends Controller
         }
 
         Session::flash('success', 'purchase successful');
+
+        Cart::destroy();
 
         Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
 
