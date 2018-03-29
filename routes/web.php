@@ -47,8 +47,6 @@ Route::name('product.single')->get('/product/{id}', 'FrontEndController@singlePr
 
 Route::name('cart.add')->post('/cart/add', 'ShoppingController@addToCart');
 
-Route::name('cart.rapid.add')->get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd');
-
 Route::name('cart')->get('/cart', 'ShoppingController@cart');
 
 Route::name('cart.delete')->get('/cart/delete/{id}', 'ShoppingController@cartDelete');
@@ -56,6 +54,8 @@ Route::name('cart.delete')->get('/cart/delete/{id}', 'ShoppingController@cartDel
 Route::name('cart.incr')->get('/cart/increment/{id}/{qty}', 'ShoppingController@increment');
 
 Route::name('cart.decr')->get('/cart/decrement/{id}/{qty}', 'ShoppingController@decrement');
+
+Route::name('cart.rapid.add')->get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd');
 
 Route::name('cart.checkout')->get('cart/checkout', 'CheckoutController@index');
 
