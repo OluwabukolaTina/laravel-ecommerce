@@ -77,7 +77,7 @@
 
                             
 
-                            <tr>
+                            <!-- <tr>
                                 <td colspan="5" class="actions">
 
                                     <div class="coupon">
@@ -94,7 +94,7 @@
                                     </div>
 
                                 </td>
-                            </tr>
+                            </tr> -->
 
                             </tbody>
                         </table>
