@@ -43,6 +43,8 @@ Route::name('products.destroy')->get('/products/destroy/{id}', 'ProductsControll
 
 Route::name('category.delete')->get('/categories/destroy/{id}', 'CategoriesController@destroy');
 
+Route::name('orders.index')->get('/orders/{type?}', 'OrdersController@index');
+
 Route::name('product.single')->get('/product/{id}', 'FrontEndController@singleProduct');
 
 Route::name('cart.add')->post('/cart/add', 'ShoppingController@addToCart');
