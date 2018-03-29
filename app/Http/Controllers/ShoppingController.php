@@ -15,9 +15,7 @@ class ShoppingController extends Controller
     //
     public function addToCart()
     {
-
     	// dd(request()->all());
-
     	//find the product that is to be added to the cart
     	$pdt = Product::find(request()->pdt_id);
 
@@ -45,7 +43,7 @@ class ShoppingController extends Controller
     }
 
     public function rapidAdd($id)
-    { 
+    {
 
         // dd(request()->all());
 
@@ -66,20 +64,20 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Product');
 
+        Cart::store('username');
+
         Session::flash('success', 'product has been added');
 
         // dd($cart);
 
         // dd(Cart::content());
-        return redirect()->route('cart');
-
+        // return redirect()->route('cart');
+          return redirect()->back();
     }
 
     public function cart()
     {
-
     	// Cart::destroy();
-
     	return view('cart');
 
     }

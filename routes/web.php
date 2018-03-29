@@ -17,175 +17,50 @@ Route::get('/test', function(){
 
 });
 
-Route::get('/', [
-
-	'uses' => 'FrontEndController@index',
-
-	'as' => 'index'
-
-]);
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::name('index')->get('/','FrontEndController@index');
 
 // Route::resource('products', 'productsController');
 
-Route::get('/products', [
+Route::name('products.index')->get('/products', 'ProductsController@index');
 
-	'uses' => 'ProductsController@index',
+Route::name('categories.index')->get('/categories', 'CategoriesController@index');
 
-	'as' => 'products.index'
+Route::name('products.create')->get('/products/create', 'ProductsController@create');
 
-]);
+Route::name('category.create')->get('/category/create', 'CategoriesController@create');
 
-Route::get('/categories', [
+Route::name('products.store')->post('/products/store', 'ProductsController@store');
 
-	'uses' => 'CategoriesController@index',
+Route::name('category.store')->post('/category/store', 'CategoriesController@store');
 
-	'as' => 'categories.index'
+Route::name('products.edit')->get('/products/edit/{id}', 'ProductsController@edit');
 
-]);
+Route::name('category.edit')->get('/categories/edit/{id}', 'CategoriesController@edit');
 
-Route::get('/products/create', [
+Route::name('category.update')->post('/categories/update/{id}', 'CategoriesController@update');
 
-	'uses' => 'ProductsController@create',
+Route::name('products.destroy')->get('/products/destroy/{id}', 'ProductsController@destroy');
 
-	'as' => 'products.create'
+Route::name('category.delete')->get('/categories/destroy/{id}', 'CategoriesController@destroy');
 
-]);
+Route::name('product.single')->get('/product/{id}', 'FrontEndController@singleProduct');
 
-Route::get('/category/create', [
+Route::name('cart.add')->post('/cart/add', 'ShoppingController@addToCart');
 
-	'uses' => 'CategoriesController@create',
+Route::name('cart.rapid.add')->get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd');
 
-	'as' => 'category.create'
+Route::name('cart')->get('/cart', 'ShoppingController@cart');
 
-]);
+Route::name('cart.delete')->get('/cart/delete/{id}', 'ShoppingController@cartDelete');
 
-Route::post('/products/store', [
+Route::name('cart.incr')->get('/cart/increment/{id}/{qty}', 'ShoppingController@increment');
 
-	'uses' => 'ProductsController@store',
+Route::name('cart.decr')->get('/cart/decrement/{id}/{qty}', 'ShoppingController@decrement');
 
-	'as' => 'products.store'
+Route::name('cart.checkout')->get('cart/checkout', 'CheckoutController@index');
 
-]);
+Route::name('cart.checkout')->post('/cart/checkout', 'CheckoutController@pay');
 
-Route::post('/category/store', [
+Auth::routes();
 
-	'uses' => 'CategoriesController@store',
-
-	'as' => 'category.store'
-
-]);
-
-Route::get('/products/edit/{id}', [
-
-	'uses' => 'ProductsController@edit',
-
-	'as' => 'products.edit'
-
-]);
-
-Route::get('/categories/edit/{id}', [
-
-	'uses' => 'CategoriesController@edit',
-
-	'as' => 'category.edit'
-
-]);
-
-Route::post('/categories/update/{id}', [
-
-	'uses' => 'CategoriesController@update',
-
-	'as' => 'category.update'
-
-]);
-
-Route::get('/products/destroy/{id}', [
-
-	'uses' => 'ProductsController@destroy',
-
-	'as' => 'products.destroy'
-
-]);
-
-Route::get('/categories/destroy/{id}', [
-
-	'uses' => 'CategoriesController@destroy',
-
-	'as' => 'category.delete'
-
-]);
-
-Route::get('/product/{id}', [
-
-		'uses' => 'FrontEndController@singleProduct',
-
-		'as' => 'product.single'
-
-]);
-
-Route::post('/cart/add', [
-		'uses'=> 'ShoppingController@addToCart',
-
-		'as' => 'cart.add'
-
-]);
-
-Route::get('/cart/rapid/add/{id}', [
-
-		'uses'=> 'ShoppingController@rapidAdd',
-
-		'as' => 'cart.rapid.add'
-
-]);
-
-Route::get('/cart', [
-
-		'uses' => 'ShoppingController@cart',
-
-		'as' => 'cart'
-
-]);
-
-Route::get('/cart/delete/{id}', [
-
-		'uses' => 'ShoppingController@cartDelete',
-
-		'as' => 'cart.delete'
-
-]);
-
-Route::get('/cart/increment/{id}/{qty}', [
-
-		'uses' => 'ShoppingController@increment',
-
-		'as' => 'cart.incr'
-
-]);
-
-Route::get('/cart/decrement/{id}/{qty}', [
-
-		'uses' => 'ShoppingController@decrement',
-
-		'as' => 'cart.decr'
-
-]);
-
-Route::get('cart/checkout', [
-
-		'uses' => 'CheckoutController@index',
-
-		'as' => 'cart.checkout'
-
-]);
-
-Route::post('/cart/checkout', [
-
-		'uses' => 'CheckoutController@pay',
-
-		'as' => 'cart.checkout'
-
-]);
+Route::name('home')->get('/home', 'HomeController@index');
