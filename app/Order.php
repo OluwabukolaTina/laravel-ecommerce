@@ -2,7 +2,7 @@
 
 namespace App;
 
-// use Cart;
+use Cart;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,21 +11,22 @@ class Order extends Model
     //
     protected $fillable = ['total', 'delivered'];
 
-    public function products()
-    {
-
-    	return $this->belongsToMany(Product::class)->withPivot('quantity', 'total')->withTimestamps();
-
-    	// return $this->belongsToMany(Product::class);
-
-    }
-
     public function user()
     {
 
         return $this->belongsTo(User::class);
 
     }
+
+    public function products()
+    {
+
+    	return $this->belongsToMany(Product::class)
+                    ->withPivot('quantity', 'total')
+                    ->withTimestamps();
+
+    }
+
 
     // public function createOrder()
     // {

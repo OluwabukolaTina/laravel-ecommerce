@@ -28,9 +28,9 @@
 
         <tr>
 
-            <td>{{  $category->name }}</td>
+            <td>{{  $order->name }}</td>
 
-            <td><a href="{{ route('category.edit', ['id' => $category->id ]) }}" class="btn btn-xs btn-info">
+            <td><a href="#" class="btn btn-xs btn-info">
 
                 <span class="glyphicon glyphicon-pencil"><span>
 
@@ -38,7 +38,7 @@
 
             </td>
 
-            <td><a href="{{ route('category.delete', ['id' => $category->id ]) }}" class="btn btn-xs btn-danger">
+            <td><a href="#" class="btn btn-xs btn-danger">
 
                 <span class="glyphicon glyphicon-trash"><span>
 

@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
 
-    <div class="panel-heading">Categories</div>
+    <div class="panel-heading text-center">Orders</div>
 
     <div class="panel-body">
 
@@ -12,9 +12,9 @@
 
     <thead>
 
-        <th>Category Name</th>
+        <th> Order By </th>
 
-         <th>Edit</th>
+         <th>Quanitiy</th>
 
           <th>Delete</th>
 
@@ -22,23 +22,24 @@
 
     <tbody>
 
-        @if($categories->count() > 0)
+        @if($orders->count() > 0)
 
-        @foreach($categories as $category)
+        @foreach($orders->orderItems as $order)
 
         <tr>
 
-            <td>{{  $category->name }}</td>
+            <td>{{  $order->user->name }}</td>
 
-            <td><a href="{{ route('category.edit', ['id' => $category->id ]) }}" class="btn btn-xs btn-info">
+            <td><!-- <a href="#" class="btn btn-xs btn-info">
 
                 <span class="glyphicon glyphicon-pencil"><span>
 
-                </a>
+                </a> -->
+                {{  $order->orderItems->withPivot->quantity }}
 
             </td>
 
-            <td><a href="{{ route('category.delete', ['id' => $category->id ]) }}" class="btn btn-xs btn-danger">
+            <td><a href="#" class="btn btn-xs btn-danger">
 
                 <span class="glyphicon glyphicon-trash"><span>
 
