@@ -64,7 +64,7 @@ return array(
                 'mysql' => array(
                         'driver'    => 'mysql',
                         'host'      => 'localhost',
-                        'database'  => 'laravel-ecommerce',
+                        'database'  => 'e-commerce',
                         'username'  => 'root',
                         'password'  => 'tina',
                         'charset'   => 'utf8',
