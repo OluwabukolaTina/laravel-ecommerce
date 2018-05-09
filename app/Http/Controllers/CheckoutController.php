@@ -43,42 +43,10 @@ class CheckoutController extends Controller
 
 
         }
-        
+
         return view('checkout');
 
     }
-
-    // public function pay()
-    // // public function pay(Request $req)
-    // {
-
-    //     // dd(request()->all());
-    //         Stripe::setApiKey('sk_test_cbm5FschjT6p2XUcStXhhPK1');
-
-    //         $token = request()->stripeToken;
-
-    //         $charge = Charge::create([
-
-    //             "amount" => Cart::total() * 100,
-
-    //             "currency" => "usd",
-
-    //             "description" => "blah blah",
-
-    //             "source" => $token
-                            
-    //         ]);
-
-    //     // dd('successful');
-    //     Session::flash('success', 'purchase successful');
-
-    //     Cart::destroy();
-
-    //     Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
-
-    //     return redirect('/');
-        
-    // }
 
     public function pay()
     // public function pay(Request $req)
@@ -98,7 +66,7 @@ class CheckoutController extends Controller
                 "description" => "blah blah",
 
                 "source" => $token
-                            
+
             ]);
 
         // dd('successful');
@@ -124,19 +92,19 @@ class CheckoutController extends Controller
                 'quantity' => $cartItem->qty,
 
                 'total' => $cartItem->total()
-    
+
             ]);
-    
+
         }
 
         Session::flash('success', 'purchase successful');
 
         Cart::destroy();
 
-        Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
+        // Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
 
         return redirect('/');
-        
+
     }
 
     /**
