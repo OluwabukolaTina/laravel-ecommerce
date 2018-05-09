@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
 
         	'name' => 'admin',
 
-        	'email' => 'admin@ecommerce.com',
+        	'email' => 'admin@admin.com',
 
             'admin' => 1,
 
