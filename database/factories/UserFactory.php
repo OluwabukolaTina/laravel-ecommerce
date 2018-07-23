@@ -26,7 +26,67 @@ $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(6),
         'code' => $faker->ean8(),
+        'image' => 'uploads/products/1.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
+        'image' => 'uploads/products/2.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
         'image' => 'uploads/products/3.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
+        'image' => 'uploads/products/4.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
+        'image' => 'uploads/products/5.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
+        'image' => 'uploads/products/6.jpg',
+        'description' => $faker->paragraph(4),
+        'price' => $faker->numberBetween(10, 1000)
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(6),
+        'code' => $faker->ean8(),
+        'image' => 'uploads/products/7.jpg',
         'description' => $faker->paragraph(4),
         'price' => $faker->numberBetween(10, 1000)
     ];

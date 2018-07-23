@@ -1,11 +1,11 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
-
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
+// $url = parse_url(getenv("DATABASE_URL"));
+//
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
 
 return array(
 
@@ -33,8 +33,8 @@ return array(
         |
         */
 
-        // 'default' => 'mysql',
-        'default' => 'pgsql_production',
+        'default' => 'mysql',
+//        'default' => 'pgsql_production',
 
         /*
         |--------------------------------------------------------------------------
@@ -64,9 +64,9 @@ return array(
                 'mysql' => array(
                         'driver'    => 'mysql',
                         'host'      => 'localhost',
-                        'database'  => 'e-commerce',
+                        'database'  => 'laravel-ecommerce',
                         'username'  => 'root',
-                        'password'  => 'tina',
+                        'password'  => '',
                         'charset'   => 'utf8',
                         'collation' => 'utf8_unicode_ci',
                         'prefix'    => '',
@@ -83,17 +83,17 @@ return array(
                         'schema'   => 'public',
                 ),
 
-                'pgsql_production' => array(
-  'driver'   => 'pgsql',
-    'host'     => $host,
-'database' => $database,
-'username' => $username,
-'password' => $password,
-'charset'  => 'utf8',
-'prefix'   => '',
-'schema'   => 'public',
-
-),
+//                 'pgsql_production' => array(
+//   'driver'   => 'pgsql',
+//     'host'     => $host,
+// 'database' => $database,
+// 'username' => $username,
+// 'password' => $password,
+// 'charset'  => 'utf8',
+// 'prefix'   => '',
+// 'schema'   => 'public',
+//
+// ),
 
                 'sqlsrv' => array(
                         'driver'   => 'sqlsrv',
